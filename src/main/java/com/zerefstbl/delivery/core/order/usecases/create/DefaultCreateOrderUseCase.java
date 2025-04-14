@@ -18,7 +18,7 @@ public class DefaultCreateOrderUseCase extends CreateOrderUseCase {
     }
 
     private Order createOrder(final CreateOrderCommand aCommand) {
-        return Order.newOrder(aCommand.price(), aCommand.status());
+        return Order.newOrder(aCommand.getPrice(), aCommand.getStatus());
     }
 
 }

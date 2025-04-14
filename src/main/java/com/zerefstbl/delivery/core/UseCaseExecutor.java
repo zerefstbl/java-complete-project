@@ -8,7 +8,7 @@ import java.util.function.Function;
 
 public abstract class UseCaseExecutor {
 
-    public abstract <RX, IN extends CreateOrderCommand, OUT extends CreateOrderOutput> CompletableFuture<RX> execute(
+    public abstract <RX, IN extends CommandUseCase, OUT extends OutputUseCase> CompletableFuture<RX> execute(
             UseCase<IN, OUT> useCase,
             IN input,
             Function<OUT, RX> outputMapper

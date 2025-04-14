@@ -13,7 +13,7 @@ public class CreateOrderOutputMapper {
         URI location = ServletUriComponentsBuilder
                 .fromContextPath(request)
                 .path("/order/{id}")
-                .buildAndExpand(output.id().getValue())
+                .buildAndExpand(output.getId().getValue())
                 .toUri();
         return ResponseEntity.created(location).body(output);
     }

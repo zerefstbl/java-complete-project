@@ -1,5 +1,7 @@
 package com.zerefstbl.delivery.presenter.usecases;
 
+import com.zerefstbl.delivery.core.CommandUseCase;
+import com.zerefstbl.delivery.core.OutputUseCase;
 import com.zerefstbl.delivery.core.UseCase;
 import com.zerefstbl.delivery.core.UseCaseExecutor;
 import com.zerefstbl.delivery.core.order.usecases.create.CreateOrderCommand;
@@ -13,7 +15,7 @@ import java.util.function.Function;
 public class UseCaseExecutorImpl extends UseCaseExecutor {
 
     @Override
-    public <RX, IN extends CreateOrderCommand, OUT extends CreateOrderOutput> CompletableFuture<RX> execute(UseCase<IN, OUT> useCase, IN input, Function<OUT, RX> outputMapper) {
+    public <RX, IN extends CommandUseCase, OUT extends OutputUseCase> CompletableFuture<RX> execute(UseCase<IN, OUT> useCase, IN input, Function<OUT, RX> outputMapper) {
         return CompletableFuture
                 .supplyAsync(() -> input)
                 .thenApplyAsync(useCase::execute)
